@@ -46,6 +46,12 @@
         @endif
     </div>
   </div>
+  <center>Halaman : {{ $projects->currentPage() }} <br />
+  Jumlah Data : {{ $projects->total() }} <br />
+  Data Per Halaman : {{ $projects->perPage() }} <br />
+  <br><div class="pagination justify-content-center">
+  {{ $projects->links() }}
+  </div>
 </body>
 
 @endsection

@@ -16,7 +16,7 @@ class ProjectsController extends Controller
     {
         $data = array(
             'id' => "projects",
-            'projects' => Projects::all()
+            'projects' => Projects::orderBy('created_at', 'desc')->paginate(6)
         );
         return view('projects.index')->with($data);
     }
