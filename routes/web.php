@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,21 @@ Route::get('/projects', function () {
     return view('projects');
 });
 
+Route::get('/uts2022', function() {
+    return view('UTS_WEB2_2022_CHRISTOPHORUS');
+});
+
+Route::get('/inisialisasi', function() {
+    return view('inisialisasi');
+});
+
+Route::get('/matkul', function() {
+    $matkul = DB::table('u_t_s')->get();
+    return view('matkul', ['matkul' => $matkul]);
+});
+
+Auth::routes();
+
 Route::resource('posts',
 'App\Http\Controllers\PostController');
 
@@ -62,6 +78,8 @@ Route::resource('abouts',
 Route::resource('education',
 'App\Http\Controllers\EducationController');
 
+Route::resource('uts',
+'App\Http\Controllers\UTSController');
 // Auth::routes();
-
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

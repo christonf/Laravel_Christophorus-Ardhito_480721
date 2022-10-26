@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
 <body>
@@ -13,14 +13,14 @@
             <h1 class="mb-3">Welcome to My Profile</h1><br>
             <h4 class="mb-3">Christophorus Ardhito Haryo Dwinanda</h4>
             <h4 class="mb-3">Gadjah Mada University Student</h4>
-            <a class="btn btn-outline-light btn-lg" href="#!" role="button">See My Bio</a>
+            <a class="btn btn-outline-light btn-lg" href="/about" role="button">See My Bio</a>
           </div>
         </div>
       </div>
     </div>
   </header>
   <!--Projects Page -->
-  <br><br><h1><b><center>PROJECTS<br><br>
+  <br><br><h1><b><center>PROJECTS<br>
   <a href="{{ route('projects.create') }}">Create New Post</a>
   @if (\Session::has('success'))
     <div class="alert alert-success">
@@ -34,7 +34,7 @@
             <div class="card" style="width: 23rem; margin:20px;">
                 <img src="https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg" class="card-img-top">
                     <div class="card-body">
-                    <h2 class="card-title" style="color: black;">{{$project->title}}</h2>
+                    <p style="font-size:25px; font-weight:bold;">{{$project->title}}</p>
                     <p style="font-size:15px; font-weight:normal;">{{$project->created_at}}</p>
                     <p class="card-text">{{$project->description}}</p>
                     <a href="/projects/{{$project->id}}" class="btn btn-primary">Read More ></a>

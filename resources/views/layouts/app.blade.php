@@ -24,7 +24,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 50%;">
+                <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 40%;">
                     <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
@@ -38,6 +38,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/projects">Projects</a>
                     </li>
+                        <!--Login & Register -->
+                    @auth
+                    <li class="nav-item" style="margin-left: 20%;">
+                    <p>Welcome <b>{{ Auth::user()->name }}</b></p>
+                    </li>
+                    <li class="nav-item">
+                    <a class="btn btn-danger" href="{{ route('logout') }}" style="margin-left: 20%;">Logout</a>
+                    </li>
+                    @endauth
+                    @guest
+                    <li class="nav-item">
+                    <a class="btn btn-primary" href="{{ route('login') }}" style="margin-left: 20%;">Login</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="btn btn-info" href="{{ route('register') }}" style="margin-left: 40%;">Register</a>
+                    </li>
+                    @endguest
                     </ul>
                 </div>
         </nav>

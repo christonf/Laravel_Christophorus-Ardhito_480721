@@ -15,14 +15,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
-<body>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
 
   <!-- Navbar -->
   @include('layouts.header')
   <!-- /.navbar -->
   @include('layouts.sidebar')
     <!-- Main content -->
-    @yield('content')
+    <main class="py-4" style="margin-left: 15%">
+      @yield('content')
+    </main>
 
   <!-- Main Footer -->
   @include('layouts.footer')

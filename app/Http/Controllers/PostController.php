@@ -109,4 +109,9 @@ class PostController extends Controller
         $post->delete();
         return redirect('posts')->with('success', 'Berhasil hapus data');
     }
+
+    public function __construct()
+    {
+    $this->middleware('auth', ["except" => ["index", "show"]]);
+    }
 }

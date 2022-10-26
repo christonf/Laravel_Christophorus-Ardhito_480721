@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
 <body>
@@ -13,7 +13,7 @@
             <h1 class="mb-3">Welcome to My Profile</h1><br>
             <h4 class="mb-3">Christophorus Ardhito Haryo Dwinanda</h4>
             <h4 class="mb-3">Gadjah Mada University Student</h4>
-            <a class="btn btn-outline-light btn-lg" href="#!" role="button">See My Bio</a>
+            <a class="btn btn-outline-light btn-lg" href="/about" role="button">See My Bio</a>
           </div>
         </div>
       </div>

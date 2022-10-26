@@ -7,4 +7,4 @@
             <a class="text-light" href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8SDGxVyIbNZi9cVoh9ROGR7pV9uPzGK3__lTv_9x6Mii3gJttNUZLg5MTsFgrm8xV8d0&usqp=CAU" style="width: 20px; length: 20px; margin-right:10px" />Instagram</a><br>
         </div>
         <!-- Copyright -->
-</footer>
+    </footer>

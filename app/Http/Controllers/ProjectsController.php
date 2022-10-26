@@ -111,4 +111,9 @@ class ProjectsController extends Controller
         $projects->delete();
         return redirect('projects')->with('success', 'Berhasil menghapus project');
     }
+
+    public function __construct()
+    {
+    $this->middleware('auth', ["except" => ["index", "show"]]);
+    }
 }
