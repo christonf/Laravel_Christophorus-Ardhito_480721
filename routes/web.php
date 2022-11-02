@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -63,6 +65,20 @@ Route::get('/matkul', function() {
     $matkul = DB::table('u_t_s')->get();
     return view('matkul', ['matkul' => $matkul]);
 });
+
+Route::get('/send-email',function(){
+    $data = [
+    'name' => 'Nama Anda',
+    'body' => 'Testing Kirim Email'
+    ];
+   
+    Mail::to('luistorpg@gmail.com')->send(new SendEmail($data));
+   
+    dd("Email successfully sent.");
+   });
+
+Route::get('/send-email', [App\Http\Controllers\SendEmailController::class, 'index'])->name('kirim-email');
+Route::post('/post-email', [App\Http\Controllers\SendEmailController::class, 'store'])->name('post-email');
 
 Auth::routes();
 
