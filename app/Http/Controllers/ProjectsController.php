@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Projects;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ProjectsController extends Controller
 {
@@ -39,7 +41,25 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'picture' => 'image|nullable|max:1999'
+        ]);
+
+        if ($request->hasFile('picture')) {
+            $filenameWithExt = $request->file('picture')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSimpan = $filename . '_' . time() . '.' . $extension;
+            $path = $request->file('picture')->storeAs('public/projects_image', $filenameSimpan);
+        }
+        else {
+            $filenameSimpan = 'noimage.jpg';
+        }
+
         $project = new Projects;
+        $project->picture = $filenameSimpan;
         $project->title = $request->input('title');
         $project->description = $request->input('description');
         $project->save();
@@ -86,14 +106,21 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validateData = $request->validate([
-            'title'=>'required|min:2',
-            'description'=>'required'
-        ]);
+        if ($request->hasFile('picture')) {
+            $filenameWithExt = $request->file('picture')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSimpan = $filename . '_' . time() . '.' . $extension;
+            $path = $request->file('picture')->storeAs('public/projects_image', $filenameSimpan);
+        }
+        else {
+            $filenameSimpan = 'noimage.jpg';
+        }
 
         Projects::where('id', $request->id)->update([
             'title' => $request->title,
-            'description' => $request->description
+            'description' => $request->description,
+            'picture' => $filenameSimpan
         ]);
 
         return redirect('projects')->with('success', 'Perubahan berhasil disimpan');
@@ -109,6 +136,7 @@ class ProjectsController extends Controller
     {
         $projects = Projects::find($id);
         $projects->delete();
+        File::delete(public_path() . '/public/posts_image/' . $projects->picture);
         return redirect('projects')->with('success', 'Berhasil menghapus project');
     }
 

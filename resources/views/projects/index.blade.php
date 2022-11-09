@@ -32,8 +32,8 @@
         @if(count($projects)>0)
             @foreach ($projects as $project)
             <div class="card" style="width: 23rem; margin:20px;">
-                <img src="https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg" class="card-img-top">
-                    <div class="card-body">
+                <img src="{{asset('storage/projects_image/'.$project->picture)}}">
+                <div class="card-body">
                     <p style="font-size:25px; font-weight:bold;">{{$project->title}}</p>
                     <p style="font-size:15px; font-weight:normal;">{{$project->created_at}}</p>
                     <p class="card-text">{{$project->description}}</p>

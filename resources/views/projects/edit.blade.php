@@ -13,9 +13,18 @@
         </div>
         @endif
         <h1>Edit Deskripsi Project</h1>
-        <form action="{{ route('projects.update', $projects->id) }}" method="POST">
+        <form action="{{ route('projects.update', $projects->id) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
             {{ csrf_field() }}
+            <div class="form-group">
+                <label for="input-file">File input</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="input-file" name="picture">
+                        <label class="custom-file-label" for="input-file">Choose file</label>
+                    </div>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" aria-describedby="emailHelp" name="title" value="{{$projects->title}}">

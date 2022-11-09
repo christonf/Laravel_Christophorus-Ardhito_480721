@@ -3,6 +3,7 @@
 @section('content')
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
+            <img src="{{asset('storage/posts_image/'.$posts->picture)}}">
             <h1>{{$posts->title}}</h1>
             <small>Tanggal: {{$posts->created_at}}</small>
             <p>{{$posts->description}}</p>
