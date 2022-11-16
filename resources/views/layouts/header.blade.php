@@ -36,4 +36,9 @@
                     </ul>
                 </div>
         </nav>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a class="nav-link" href="{{ url('/gallery') }}">
+            Gallery
+            </a>
+        </li>
     </header>

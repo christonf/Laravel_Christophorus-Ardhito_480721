@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css' )}}">
   <link rel="stylesheet" href="{{ asset('lte/dist/css/style.css' )}}">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ asset('lightbox2/dist/css/lightbox.min.css')}}">
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -40,5 +41,7 @@
 <script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js' )}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('lte/dist/js/adminlte.min.js' )}}"></script>
+<!-- LightBox2 App -->
+<script src="{{ asset('lightbox2/dist/js/lightbox-plus-jquery.min.js')}}"></script>
 </body>
 </html>
