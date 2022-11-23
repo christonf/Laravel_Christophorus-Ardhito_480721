@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
+use App\Models\Projects;
 
 class GalleryController extends Controller
 {
@@ -15,9 +15,22 @@ class GalleryController extends Controller
     public function index()
     {
         $data = array(
-            'id' => "posts",
+            'id' => "projects",
             'menu' => 'Gallery',
-            'galleries' => Post::where('picture', '!=',
+            'galleries' => Projects::where('picture', '!=',
+            '')->whereNotNull('picture')->orderBy('created_at',
+            'desc')->paginate(30)
+            );
+            // return view('gallery.index')->with($data);
+            return response()->json(['data' => $data]);
+    }
+
+    public function index2()
+    {
+        $data = array(
+            'id' => "projects",
+            'menu' => 'Gallery',
+            'galleries' => Projects::where('picture', '!=',
             '')->whereNotNull('picture')->orderBy('created_at',
             'desc')->paginate(30)
             );
