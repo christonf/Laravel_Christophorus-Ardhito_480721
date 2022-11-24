@@ -104,3 +104,8 @@ Route::resource('gallery', 'App\Http\Controllers\GalleryController');
 
 Route::get('/gallery2', 'App\Http\Controllers\GalleryController@index2');
 Route::get('/greet', [GreetController::class, 'greet'])->name('greeting');
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
