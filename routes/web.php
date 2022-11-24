@@ -107,5 +107,5 @@ Route::get('/greet', [GreetController::class, 'greet'])->name('greeting');
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
